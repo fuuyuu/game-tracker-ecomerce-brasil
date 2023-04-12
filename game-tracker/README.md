@@ -1,5 +1,7 @@
 # game-tracker
 
+# bem vindos ao meu primeiro projeto em Vue, espero que vocês gostem!
+
 ## Project setup
 ```
 npm install

@@ -302,5 +302,10 @@ export default {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 20px;
+		position: absolute;
+		width: 1180px;
+		height: 1064px;
+		left: 130px;
+		top: 246px;
 	}
 </style>

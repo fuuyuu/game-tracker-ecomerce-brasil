@@ -5,12 +5,15 @@
     </nav>
     <div class="container">
         <div class="content">
-          <div class="filters">
-            <!-- Filtros aqui -->
-          </div>
-		<div class="product-list-container">
-			<ProductCard v-for="product in products" :key="product.gameID" :product="product" />
-		</div>
+			<div class="filters">
+				<!-- Filtros aqui -->
+			</div>
+			<div class="product-list-container">
+				<ProductCard v-for="product in products" :key="product.gameID" :product="product" />
+				<div class="product-see-more">
+					<button>Carregar Mais</button>
+				</div>
+			</div>
         </div>
       </div>
     </div>
@@ -307,5 +310,15 @@ export default {
 		height: 1064px;
 		left: 130px;
 		top: 246px;
+	}
+	button {
+		height: 50px;
+		width: 380px;
+		border-radius: 8px;
+		font-family: 'Roboto';
+		font-size: 18px;
+		color: white;
+		background-color: #0B1641;
+		border: none;
 	}
 </style>

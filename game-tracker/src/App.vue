@@ -3,9 +3,9 @@
 		<nav class="navbar">
 			<img class="logo" :src="require('@/assets/logo/logo.png')" alt="Game Tracker">
 		</nav>
-		<div class="container">
+		<div class="container" v-scroll="checkScrollPosition">
 			<div class="content">
-				<h2>Ofertas</h2>
+				<h1>Ofertas</h1>
 				<div class="filters row">
 					<div class="search-filter col-md-6">
 						<input class="search-input" type="text" v-model="searchTerm" />
@@ -13,34 +13,37 @@
 					<div class="col-md-6">
 						<label class="order-by-label" >Ordenar por:</label>
 						<select class="order-by" id="order-select" v-model="order">
-							<option value="discount">% de Desconto</option>
-							<option value="price-desc">Maior preço</option>
-							<option value="price-asc">Menor preço</option>
-							<option value="title">Título</option>
-						</select>
+						<option value="discount">% de Desconto</option>
+						<option value="price-desc">Maior preço</option>
+						<option value="price-asc">Menor preço</option>
+						<option value="title">Título</option>
+					</select>
 					</div>
 				</div>
 				<div class="product-list-container">
-					<ProductCard v-for="product in orderedProducts" :key="product.gameID" :product="product" />
-					<div class="product-see-more">
-						<button>Carregar Mais</button>
+					<div class="product-list">
+						<ProductCard v-for="product in orderedProducts" :key="product.gameID" :product="product" />
+						<button class="product-see-more">Carregar Mais</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- <FooterApp /> -->
 	</div>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-import "@/components/Home.css";
+// import FooterApp from '@/components/FooterApp.vue';
 
 export default {
 	components: {
 		ProductCard,
+		// FooterApp,
 	},
 	data() {
 		return {
+			showFooter: false,
 			order: 'discount',
 			searchTerm: '',
 			products:[
@@ -296,7 +299,7 @@ export default {
 					"dealRating": "9.1",
 					"thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/2206720/capsule_sm_120.jpg?t=1678345829"
 				}
-			],
+			]
 		};
 	},
 	computed: {
@@ -311,11 +314,13 @@ export default {
 		searchProducts() {
             this.$emit('search', this.searchTerm);
         },
+
 		filterProducts(products) {
 			return products.filter((product) =>
 				product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
 			);
 		},
+		
 		sortProducts(products) {
 			switch (this.order) {
 			case "discount":
@@ -331,3 +336,7 @@ export default {
 	},
 };
 </script>
+
+<style>
+	@import "@/components/css/Home.css";
+</style>

@@ -72,14 +72,15 @@ button {
     font-weight: bold;
     border: none;
     padding: 5px 10px;
-    cursor: pointer;
     border-radius: 8px;
     font-family: 'Roboto';
     font-size: 18px;
 }
+
 button.details {
     background-color: #C70160;
     width : 116px;
+    cursor: pointer;
 }
 
 button.discount {

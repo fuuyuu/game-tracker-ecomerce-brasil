@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="footer-content">
-            <img class="logo" :src="require('@/assets/logo/mini-logo.png')" alt="Game Tracker Inc.">
+            <img class="logo-footer" :src="require('@/assets/logo/mini-logo.png')" alt="Game Tracker Inc.">
         </div>
         <p>© 2021, Game Tracker Inc. Todos os direitos reservados. Nulla facilisi. Etiam sagittis congue tempor. 
             Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 

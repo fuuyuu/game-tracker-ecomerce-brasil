@@ -7,8 +7,8 @@
       <div class="card-content">
         <div class="card-title">{{ product.title }}</div>
         <div class="card-price">
-			<div class="card-price-original">{{ product.normalPrice }}</div>
-			<div class="card-price-current">{{ product.salePrice }}</div>
+			<div class="card-price-original">$ {{ product.normalPrice }}</div>
+			<div class="card-price-current">$ {{ product.salePrice }}</div>
 			<div class="card-discount"><button class="discount">{{ getDiscountText(product) }}</button></div>
 			<div class="card-details"><button class="details">Detalhes</button></div>
         </div>

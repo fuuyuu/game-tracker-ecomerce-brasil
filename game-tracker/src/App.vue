@@ -3,12 +3,13 @@
 		<nav class="navbar">
 			<img class="logo" :src="require('@/assets/logo/logo.png')" alt="Game Tracker">
 		</nav>
-		<div class="container" v-scroll="checkScrollPosition">
+		<div class="container">
 			<div class="content">
 				<h1>Ofertas</h1>
 				<div class="filters row">
 					<div class="search-filter col-md-6">
-						<input class="search-input" type="text" v-model="searchTerm" />
+						<input class="search-input" type="text" v-model="searchTerm" placeholder="Pesquisar"/>
+						<font-awesome-icon icon="fa-solid fa-magnifying-glass" />
 					</div>
 					<div class="col-md-6">
 						<label class="order-by-label" >Ordenar por:</label>
@@ -28,22 +29,21 @@
 				</div>
 			</div>
 		</div>
-		<!-- <FooterApp /> -->
+		<FooterApp />
 	</div>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-// import FooterApp from '@/components/FooterApp.vue';
+import FooterApp from '@/components/FooterApp.vue';
 
 export default {
 	components: {
 		ProductCard,
-		// FooterApp,
+		FooterApp,
 	},
 	data() {
 		return {
-			showFooter: false,
 			order: 'discount',
 			searchTerm: '',
 			products:[

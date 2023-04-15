@@ -8,8 +8,7 @@
 				<h1>Ofertas</h1>
 				<div class="filters row">
 					<div class="search-filter col-md-6">
-						<input class="search-input" type="text" v-model="searchTerm" placeholder="Pesquisar"/>
-						<font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+						<input class="search-input" type="text" v-model="searchTerm" placeholder="Procurar"/>
 					</div>
 					<div class="col-md-6">
 						<label class="order-by-label" >Ordenar por:</label>
@@ -22,6 +21,7 @@
 					</div>
 				</div>
 				<div class="product-list-container">
+					<div class="text" v-if="searched && filteredProducts.length === 0">Desculpe, não achamos produtos correspondentes a sua pesquisa.</div>
 					<div class="product-list">
 						<ProductCard v-for="product in orderedProducts" :key="product.gameID" :product="product" />
 						<button class="product-see-more">Carregar Mais</button>
@@ -29,23 +29,24 @@
 				</div>
 			</div>
 		</div>
-		<FooterApp />
+		<!-- <FooterApp /> -->
 	</div>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-import FooterApp from '@/components/FooterApp.vue';
+// import FooterApp from '@/components/FooterApp.vue';
 
 export default {
 	components: {
 		ProductCard,
-		FooterApp,
+		// FooterApp,
 	},
 	data() {
 		return {
 			order: 'discount',
 			searchTerm: '',
+			searched: false,
 			products:[
 				{
 					"internalName": "COMPUTERCATS",
@@ -303,15 +304,32 @@ export default {
 		};
 	},
 	computed: {
+		filteredProducts() {
+			if (this.searchTerm !== '') {
+				return this.products.filter(product => {
+					return product.title.toLowerCase().includes(this.searchTerm.toLowerCase());
+				});
+			} else {
+				return this.products;
+			}
+		},
+
 		orderedProducts() {
 			let filteredProducts = [...this.products]; // cria uma cópia do array original
 			filteredProducts = this.filterProducts(filteredProducts); // aplica o filtro
 			filteredProducts = this.sortProducts(filteredProducts); // aplica a ordenação
-			return filteredProducts;
+			if (this.searched && !this.products.length) {
+				return [];
+			} else if (this.searchTerm) {
+				return this.products.filter(product => product.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
+			} else {
+				return filteredProducts;
+			}
 		},
 	},
 	methods: {
 		searchProducts() {
+			this.searched = true;
             this.$emit('search', this.searchTerm);
         },
 
@@ -334,6 +352,15 @@ export default {
 			}
 		},
 	},
+	watch: {
+		searchTerm() {
+			if (this.searchTerm !== '') {
+				this.searched = true;
+			} else {
+				this.searched = false;
+			}
+		}
+	}
 };
 </script>
 

@@ -10,10 +10,12 @@ body {
     background-attachment: fixed;
 }
 
-h1 {
+h1,
+.text {
     width: 117px;
     height: 42px;
     margin-left: 130px;
+    margin-top: 20px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 300;
@@ -44,6 +46,7 @@ button {
 
 .logo {
     height: 30px;
+    margin-left: 8%;
 }
 
 .product-list {

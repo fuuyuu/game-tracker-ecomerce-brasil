@@ -29,14 +29,19 @@
 }
 
 .card-title {
-    font-size: 24px;
-    text-align: left;
-    color: white;
+    left: 4.21%;
+    right: 26.32%;
+    top: 61.35%;
+    bottom: 27.49%;
     font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
 }
 
 .card-price {
-    font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
     color: white;
@@ -45,7 +50,6 @@
 }
 
 .card-price-original {
-    font-size: 0.8rem;
     text-align: center;
     color: white;
     text-decoration: line-through;
@@ -55,7 +59,7 @@
 }
 
 .card-discount {
-    font-size: 0.8rem;
+    font-size: 18px;
     text-align: right;
     color: white;
     font-family: 'Roboto';
@@ -79,11 +83,11 @@ button {
 
 button.details {
     background-color: #C70160;
-    width : 116px;
+    max-width : 116px!important;
     cursor: pointer;
 }
 
 button.discount {
     background-color: #16857B;
-    width : 84px;
+    max-width : 84px!important;
 }

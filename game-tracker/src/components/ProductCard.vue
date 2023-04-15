@@ -2,7 +2,7 @@
   <div class="card-container">
     <div class="card">
       <div class="card-image">
-        <img :src="product.thumb" alt="">
+        <img :src="product.thumb || fallbackImage" alt="{{ product.title }}">
       </div>
       <div class="card-content">
         <div class="card-title">{{ product.title }}</div>
@@ -10,7 +10,7 @@
 			<div class="card-price-original">$ {{ product.normalPrice }}</div>
 			<div class="card-price-current">$ {{ product.salePrice }}</div>
 			<div class="card-discount"><button class="discount">{{ getDiscountText(product) }}</button></div>
-			<div class="card-details"><button class="details">Detalhes</button></div>
+			<div class="card-details"><button class="details">DETALHES</button></div>
         </div>
       </div>
     </div>
@@ -25,6 +25,11 @@ export default {
 		type: Object,
 		required: true,
 		},
+	},
+	data() {
+		return {
+			fallbackImage: require('@/assets/logo/sem-imagem.jpg'),
+		}
 	},
 	methods: {
 		getDiscountText(product) {

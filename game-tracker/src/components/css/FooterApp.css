@@ -59,3 +59,38 @@ p {
     color: #fff;
     text-decoration: none;
 }
+
+@media only screen and (max-width: 767px) {
+    .logo-footer {
+        position: absolute;
+        left: 48.89%;
+        right: 48.91%;
+        top: 5%;
+        bottom: 0%;
+    }
+    footer {
+        width: 30%;
+    }
+    p {
+        font-size: 10px;
+        left: 3.5%;
+        right: 7.5%;
+        top: 64px;
+    }
+    .links {
+        display: contents;
+        text-align: -webkit-center;
+        margin-top: 15px;
+        font-size: 12px;
+        padding: 0px;
+        gap: 46px;
+        left: 9.03%;
+        right: 51.81%;
+        top: 72.35%;
+        bottom: 19.61%;
+    }
+    .links a {
+        display: block;
+        padding: 5px 0;
+    }
+}

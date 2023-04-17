@@ -7,10 +7,10 @@
 			<div class="content">
 				<h1>Ofertas</h1>
 				<div class="filters row">
-					<div class="search-filter col-md-6">
+					<div class="search-filter col-md-6 col-sm-8">
 						<input class="search-input" type="text" v-model="searchTerm" placeholder="Procurar"/>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 col-sm-4">
 						<label class="order-by-label" >Ordenar por:</label>
 						<select class="order-by" id="order-select" v-model="order">
 						<option value="discount">% de Desconto</option>
@@ -29,18 +29,18 @@
 				</div>
 			</div>
 		</div>
-		<!-- <FooterApp /> -->
+		<FooterApp />
 	</div>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-// import FooterApp from '@/components/FooterApp.vue';
+import FooterApp from '@/components/FooterApp.vue';
 
 export default {
 	components: {
 		ProductCard,
-		// FooterApp,
+		FooterApp,
 	},
 	data() {
 		return {

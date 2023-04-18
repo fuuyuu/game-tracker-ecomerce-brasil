@@ -1,6 +1,7 @@
 # game-tracker
 
 # bem vindos ao meu primeiro projeto em Vue, espero que vocês gostem!
+# tentei colocar o footer no lugar correto, mas ele não estava indo para onde ele deveria ficar... Acabei comentando ele porque não estava conseguindo visualizar a página em si.
 
 ## Project setup
 ```

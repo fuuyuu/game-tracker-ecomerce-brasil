@@ -29,18 +29,18 @@
 				</div>
 			</div>
 		</div>
-		<FooterApp />
+		<!-- <FooterApp /> -->
 	</div>
 </template>
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-import FooterApp from '@/components/FooterApp.vue';
+// import FooterApp from '@/components/FooterApp.vue';
 
 export default {
 	components: {
 		ProductCard,
-		FooterApp,
+		// FooterApp,
 	},
 	data() {
 		return {
